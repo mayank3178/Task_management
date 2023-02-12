@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Task</title>
+</head>
+<body>
+	<form method="post" action="/update/{{task.id}}">
+		{% csrf_token %}
+		<fieldset>
+		<p>
+			<h1>Edit Task</h1>
+		</p>
+		<p>
+			<label>Task Name:</label>
+			<input type="text" name="taskname" value="{{task.taskname}}">
+		</p>
+		<p>
+			<label>Task Completion Date:</label><br>
+			<input type="date" name="taskcompletiondate" value="{{task.taskcompletiondate}}">
+		</p>
+		<p>
+			<label>Task Description:</label><br>
+			<textarea name="taskdescription" cols="30" rows="3">{{task.taskdescription}}</textarea>
+		</p>
+		<p>
+			<button type="submit">Update</button>&nbsp;&nbsp;
+			<button><a href="{% url 'showalltask' %}">Cancle</a></button>
+		</p>
+		</fieldset>
+	</form>
+
+</body>
+</html>

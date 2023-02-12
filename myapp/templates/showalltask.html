@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show all task</title>
+</head>
+<body>
+	<div class="col-sm-8"><h2>Task List</h2></div>
+	<div class="col-sm-4">
+	<button><a href="{% url 'createtask' %}">Add Task</a></button>
+	</div>
+	<table border="5" width="100%" cellpadding="10px" cellspacing="10px">
+		<tr>
+			<th>Task Name</th>
+			<th>Task Completion Date</th>
+			<th>Task Description</th>
+			<th>Action</th>
+		</tr>
+		{% for i in alltask %}
+		<tr>
+			<td>{{i.taskname}}</td>
+			<td>{{i.taskcompletiondate}}</td>
+			<td>{{i.taskdescription}}</td>
+			<td>
+				<button><a href="/edit/{{i.id}}">Edit</a></button>
+				<button><a href="/delete/{{i.id}}">Delete</a></button>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</body>
+</html>
